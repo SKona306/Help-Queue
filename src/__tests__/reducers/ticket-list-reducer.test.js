@@ -1,4 +1,5 @@
 import ticketListReducer from '../../reducer/ticket-list-reducer';
+import * as c from '../../actions/ActionTypes';
 
 describe('tickietListReducer', () => {
 
@@ -27,7 +28,7 @@ describe('tickietListReducer', () => {
 
     test('Should successfully delete a ticket', () => {
       action = {
-        type: 'DELETE_TICKET',
+        type: c.DELETE_TICKET,
         id: 1
       };
       expect(ticketListReducer(currentState, action)).toEqual({
@@ -43,7 +44,7 @@ describe('tickietListReducer', () => {
   test('Should successfully add new ticket data to mainTicketList', () => {
     const { names, location, issue, id } = ticketData;
     action = {
-      type: 'ADD_TICKET',
+      type: c.ADD_TICKET,
       names: names,
       location: location,
       issue: issue,
@@ -61,6 +62,6 @@ describe('tickietListReducer', () => {
   });
 
   test('Should return default state if there is no action type pased into the reducer', () => {
-    expect(ticketListReducer({}, {type:null})).toEqual({});
+    expect(ticketListReducer({}, {type:null })).toEqual({});
   });
 });

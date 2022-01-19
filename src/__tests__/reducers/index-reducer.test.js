@@ -2,13 +2,14 @@ import rootReducer from '../../reducer/index';
 import { createStore } from 'redux';
 import formVisibleReducer from '../../reducer/form-visible-reducer';
 import ticketListReducer from '../../reducer/ticket-list-reducer';
+import * as c from '../../actions/ActionTypes';
 
 let store =createStore(rootReducer);
 
 describe('rootReducer', () => {
 
   test('Should return default state if no action type is recognized', () => {
-    expect(rootReducer({}, { type: null})).toEqual({
+    expect(rootReducer({}, { type: null })).toEqual({
       mainTicketList: {},
       formVisibleOnPage: false
     });
@@ -24,7 +25,7 @@ describe('rootReducer', () => {
 
   test('Check that ADD_TICKET action works for ticketListReducer and root reducer', () => {
     const action = {
-      type: 'ADD_TICKET',
+      type: c.ADD_TICKET,
       names: 'Ryan & Aimen',
       location: '4b',
       issue: 'Redux action is not working correctly.',
@@ -36,7 +37,7 @@ describe('rootReducer', () => {
 
   test('Check that TOGGLE_FORM action works for formVisibleReducer and root reducer' , () => {
     const action = {
-      type: 'TOGGLE_FORM'
+      type: c.TOGGLE_FORM
     }
 
     store.dispatch(action);
