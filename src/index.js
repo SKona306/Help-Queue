@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import { createStore } from 'redux';
-import reducer from './reducer/ticket-list-reducer';
 import { Provider } from 'react-redux';
+import rootReducer from './reducer/index';
 
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 store.subscribe(() => 
   console.log(store.getState())
