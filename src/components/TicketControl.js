@@ -35,7 +35,12 @@ class TicketControl extends React.Component {
   }
 
   updateTicketElapsedWaitTime = () => {
-    console.log('tick');
+    const { dispatch } = this.props;
+    Object.values(this.props.mainTicketList).forEach(ticket => {
+      const newFormattedWaitTime = ticket.timeOpen.fromNow(true);
+      const action = a.updateTime(ticket.id, newFormattedWaitTime);
+      dispatch(action);
+    });
   }
 
   handleEditingTicketInList = (ticketToEdit) => {
