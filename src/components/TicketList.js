@@ -13,6 +13,7 @@ function TicketList(props){
 
   const tickets = useSelector(state => state.firestore.ordered.tickets);
 
+
   if (isLoaded(tickets)) {
     return (
       <React.Fragment>
